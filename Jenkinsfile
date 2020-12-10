@@ -3,7 +3,7 @@ pipeline {
         VERSION = "latest"
         PROJECT = "sample-java"
         IMAGE = "$PROJECT:$VERSION"
-        ECRURL = "https://683294139580.dkr.ecr.ap-south-1.amazonaws.com/sample-java"
+        ECRURL = "https://683294139580.dkr.ecr.us-east-1.amazonaws.com/sample-java"
         ECRCRED = "ecr:us-east-1:c8880065-79a9-4e1b-b329-aafbb2ce4f00"
     }
        
@@ -79,7 +79,7 @@ pipeline {
        
         stage('Deploy Aws Ecr image into Aws Ecs') {
             steps {
-                dir("ecs") {
+                dir("ecs/") {
                     script {
                         sh '''
                             terraform init
