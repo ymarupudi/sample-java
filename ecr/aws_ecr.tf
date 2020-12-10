@@ -1,3 +1,8 @@
+# Configure the AWS Provider
+provider "aws" {
+  region = "us-east-1"
+}
+# Creating ecr repo
 resource "aws_ecr_repository" "sample-java" {
   name                 = "sample-java"
   image_tag_mutability = "MUTABLE"
