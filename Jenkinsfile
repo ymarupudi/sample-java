@@ -10,7 +10,7 @@ pipeline {
     agent any
     tools {
         maven 'maven'
-	terraform-11 'terraform'
+	terraform 'terraform'
     }
 	
     stages {
