@@ -1,3 +1,9 @@
+# Configure the AWS Provider
+provider "aws" {
+  region = "us-east-1"
+}
+
+# Creating ecs cluster
 resource "aws_ecs_cluster" "web-cluster" {
   name               = "ecs_cluster"
   capacity_providers = [aws_ecs_capacity_provider.test.name]
