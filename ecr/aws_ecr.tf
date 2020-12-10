@@ -1,5 +1,5 @@
-resource "aws_ecr_repository" "app_repo" {
-  name                 = "app_repo"
+resource "aws_ecr_repository" "sample-java" {
+  name                 = "sample-java"
   image_tag_mutability = "MUTABLE"
   image_scanning_configuration {
     scan_on_push = true
@@ -11,7 +11,7 @@ resource "aws_ecr_repository" "app_repo" {
 }
 
 resource "aws_ecr_lifecycle_policy" "repo_policy" {
-  repository = aws_ecr_repository.app_repo.name
+  repository = aws_ecr_repository.sample-java.name
   policy     = <<EOF
 {
     "rules": [
