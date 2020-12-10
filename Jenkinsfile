@@ -10,6 +10,7 @@ pipeline {
     agent any
     tools {
         maven 'maven'
+	terraform-11 'terraform'
     }
 	
     stages {
@@ -37,16 +38,12 @@ pipeline {
 		
         stage('Aws Ecr Repo Creation') {
             steps {
-		sh """
-			PATH=/usr/local/sbin/terraform
-          		terraform init
-		   """
                 dir("ecr/") {
                     script {
                         sh 'pwd'
                         sh 'terraform init'
                         sh 'terraform plan'
-                        sh 'terraform apply'
+                        sh 'terraform apply --auto-approve'
                            
                     }
                 }
@@ -87,7 +84,7 @@ pipeline {
                         sh '''
                             terraform init
                             terraform plan
-                            terraform apply
+                            terraform apply --auto-approve
        
                            '''
                     }
