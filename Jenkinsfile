@@ -39,11 +39,11 @@ pipeline {
             steps {
                 dir("ecr/") {
                     script {
-                        sh  '''
-                            terraform init
-                            terraform plan
-                            terraform apply
-                            '''
+                        sh 'pwd'
+                        sh 'terraform init'
+                        sh 'terraform plan'
+                        sh 'terraform apply'
+                           
                     }
                 }
             }
@@ -76,7 +76,7 @@ pipeline {
             }
         }
        
-        stage('Deploy Aws Ecr image into Aws EKS') {
+        stage('Deploy Aws Ecr image into Aws Ecs') {
             steps {
                 dir("ecs") {
                     script {
