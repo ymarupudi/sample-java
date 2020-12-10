@@ -37,6 +37,10 @@ pipeline {
 		
         stage('Aws Ecr Repo Creation') {
             steps {
+		sh """
+			PATH=/usr/local/sbin/terraform
+          		terraform init
+		   """
                 dir("ecr/") {
                     script {
                         sh 'pwd'
