@@ -15,6 +15,7 @@ pipeline {
         stage('SCM Checkout') {
             steps {
             // Get source code from Gitlab repository
+                sh 'git config remote.origin.url https://github.com/shareef242/sample-java.git'
                 checkout([$class: 'GitSCM', branches: [[name: '*/dev']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github-cred', url: 'https://github.com/shareef242/sample-java.git']]])
             }
         }
