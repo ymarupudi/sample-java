@@ -1,1 +1,1 @@
-# java-app
+# myjava-app
