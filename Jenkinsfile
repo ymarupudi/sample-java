@@ -4,8 +4,8 @@ pipeline {
         stage ('Initialize') {
             steps {
                 sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}/bin/mvn"
+                    echo "PATH = ${M2_HOME}/bin:${PATH}"
+                    echo "M2_HOME = /opt/apache-maven"
                 '''
             }
         }
